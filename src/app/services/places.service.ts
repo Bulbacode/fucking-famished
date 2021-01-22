@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { environment } from '../../environments/environment';
 
 // Example API Call
 // https://maps.googleapis.com/maps/api/place/nearbysearch/json?
@@ -59,7 +60,7 @@ export class PlacesService {
         });
       }
   
-      resolve(`http://localhost:7000/nearbyFood/${radius}/${this.currentLocation.coords.latitude}/${this.currentLocation.coords.longitude}`);
+      resolve(`${environment.apiUrl}/nearbyFood/${radius}/${this.currentLocation.coords.latitude}/${this.currentLocation.coords.longitude}`);
     });
     
   }
