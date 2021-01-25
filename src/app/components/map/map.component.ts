@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
 
 @Component({
   selector: 'google-map',
@@ -15,7 +16,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   map: google.maps.Map;
   marker: google.maps.Marker;
 
-  constructor() { }
+  constructor(private analytics: AngularFireAnalytics) { }
 
   ngOnInit(): void {
     this.coords = new google.maps.LatLng(this.location.geometry.location.lat, this.location.geometry.location.lng);
@@ -38,6 +39,8 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.mapOptions);
 
     this.marker.setMap(this.map);
+
+    this.analytics.logEvent('load_map');
   }
 
 }

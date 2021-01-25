@@ -44,3 +44,11 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Firebase stuff
+functions/*
+public/*
+*firebase*.cache
+package-lock*
+.firebase/*
+

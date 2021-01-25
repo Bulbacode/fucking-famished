@@ -1,27 +1,16 @@
-# Whereshouldigotoeat
+# FuckingFamished.com
+A website designed to imitate the beloved WTFSIGTE. This repository is the angular front end, for the api check [fucking-famished-api](https://github.com/Bulbacode/fucking-famished-api)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+## Why am I making this?
+I am a content-creator [on TikTok](https://tiktok.com/@bulbacode) who preaches the importance of thinking for yourself and not going to college for a computer science degree. Instead contributing to projects and building a portfolio should be priority no 1.
 
-## Development server
+To help facilitate this I want to build simple apps and websites that my viewers can come in and contribute to. Feel free to log bugs, feature enhancements as often as you'd like to help out the contributing devs to solve some problems they can show on their resumes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to Build Locally
+To build locally, navigate to local directory and run 
+`ng serve`
 
-## Code scaffolding
+That will host the front-end locally on [http://localhost:4200](http://localhost:4200)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+*Note - the backend api needs to be running locally as well for the requests to make it out.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fuckingfamished"
+  },
+  "targets": {
+    "fuckingfamished": {
+      "hosting": {
+        "whereshouldigotoeat": [
+          "fuckingfamished"
+        ]
+      }
+    }
+  }
+}
