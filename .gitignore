@@ -49,3 +49,6 @@ Thumbs.db
 functions/*
 public/*
 *firebase*.cache
+package-lock*
+.firebase/*
+

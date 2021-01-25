@@ -19,6 +19,12 @@ import { MapComponent } from './components/map/map.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { FooterComponent } from './components/footer/footer.component';
+
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+  
 
 @NgModule({
   declarations: [
@@ -26,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     ResultComponent,
     MapComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,9 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule
   ],
   providers: [PlacesService],
   bootstrap: [AppComponent]

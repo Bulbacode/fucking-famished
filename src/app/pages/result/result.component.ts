@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlacesService } from 'src/app/services/places.service';
 
@@ -20,7 +21,7 @@ export class ResultComponent implements OnInit {
 
   noData: boolean;
 
-  constructor(private route: ActivatedRoute, private places: PlacesService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private places: PlacesService, private router: Router, private analytics: AngularFireAnalytics) { }
 
   ngOnInit(): void {
     this.route.queryParams
@@ -32,6 +33,7 @@ export class ResultComponent implements OnInit {
           if (this.location) {
             this.noData = false;
             this.mapsUrl = this.buildMapsUrl();
+            this.analytics.logEvent('load_new_location', this.location);
           } else {
             this.noData = true;
           }
