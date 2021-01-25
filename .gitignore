@@ -45,6 +45,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Firebase stuff
 functions/*
 public/*
 *firebase*.cache
