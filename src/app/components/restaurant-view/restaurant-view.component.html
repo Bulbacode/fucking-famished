@@ -1,0 +1,37 @@
+<div style="display: grid; place-items: center;">
+    <img *ngIf="this.loading" src="../../../assets/loading.svg"/>
+    <div class="mx-5 mb-5" *ngIf="this.currentBusiness && !this.loading">
+        <img [src]="this.currentBusiness.photos[0]" alt=" Image of Restaurant" style="max-width: 340px;" class="w-full object-cover object-center rounded-lg shadow-md" />    
+     
+        <div class="relative px-4 -mt-16 justify-center" style="max-width: 340px;">
+            <div style="max-width: 320px;" class="bg-white mx-auto p-6 rounded-lg shadow-lg">
+        
+                <h4 class="mt-1 text-xl text-black font-semibold uppercase leading-tight truncate">{{ this.currentBusiness.name }}</h4>
+
+                <div class="mt-1 flex flex-row justify-center content-between">
+                    <span *ngFor="let cat of this.currentBusiness.categories | slice:0:2" class="px-2 text-black font-bold text-md">{{ cat.title }}</span>
+                </div>
+
+                <div class="mt-1 flex flex-row justify-between content-between">
+                    <span class="px-2 text-black font-semibold text-md">{{this.currentBusiness.price}}</span>
+
+                    <a href="tel:{{this.currentBusiness.phone.substring(1)}}" class="px-2 text-black font-semibold text-md">{{ this.currentBusiness.display_phone }}</a>
+                </div>
+     
+                <div class="mt-4">
+                    <span class="text-black text-md font-semibold">{{this.currentBusiness.rating}}/5 ratings </span>
+                    <span class="text-sm text-gray-600">(based on {{ this.currentBusiness.review_count }} ratings)</span>
+                </div>
+
+                <div class="mt-1 flex flex-row justify-center content-between">
+                    <span class="text-black text-md font-semibold">{{this.currentBusiness.location.city}}, {{this.currentBusiness.location.state}}</span>
+                </div>
+
+                <div class="mt-3 flex flex-row justify-between content-between">
+                    <button (click)="openMap()" class="text-center inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Directions</button>
+                    <button (click)="next()" class="text-center inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Next Location</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

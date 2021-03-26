@@ -1,0 +1,43 @@
+<div id="card" [ngClass]="(this.exit==true)?'animate__bounceOutLeft':'my-class2'" class="animate__animated animate__bounceInRight">
+    <div class="px-4">
+        <div style="min-height: 307px;" class="flex flex-wrap content-around bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-baseline">
+                <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                    Finally, filter by some additional parameters
+                </div>  
+            </div>
+    
+            <h4 class="mt-1 text-black text-xl font-bold uppercase leading-tight">
+                Which of these are important to you? Leave unchecked if not important
+            </h4>
+
+            <div class="flex flex-row content-around mx-auto">
+                <label class="inline-flex items-center">
+                    <div class="flex flex-col justify-center text-center">
+                        <span class="ml-2 px-2 text-black text-sm font-bold">Wheelchair Accessible</span>
+                        <input [(ngModel)]="extras.wheelchair" type="checkbox" class="text-center form-checkbox" checked>
+                    </div>
+                </label>
+                <label class="inline-flex items-center">
+                    <div class="flex flex-col justify-center text-center">\
+                        <span class="ml-2 px-2 text-black text-sm font-bold">Guaranteed Non Discriminatory</span>
+                        <input [(ngModel)]="extras.open_to_all" type="checkbox" class="form-checkbox" checked>
+                    </div>
+                </label>
+                <label class="inline-flex items-center">
+                    <div class="flex flex-col justify-center text-center">
+                        <span class="ml-2 px-2 text-black text-sm font-bold">Gender Neutral Restrooms</span>
+                        <input [(ngModel)]="extras.restrooms" type="checkbox" class="form-checkbox" checked>
+                    </div>
+                </label>
+            </div>
+
+            <div class="container mt-4">
+
+                <div class="mt-2 flex text-center mx-auto justify-between flex-row">
+                    <button (click)="next()" class="text-center inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Next</button>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

@@ -2,26 +2,82 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
 
-## Development server
+# Running a Dev Server locally
+## Setup the frontend
+### Node.js
+This assumes you already have `Node.js` installed on your machine.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Angular CLI
+The first requirement is the Angular cli, this is required to build the app and rather than just use the npx (installed lib) I'd recommend grabbing the cli globally.
 
-## Code scaffolding
+`npm i -g @angular/cli`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Clone the Repo
+Make sure you clone this repository and place it in a memorable directory.
 
-## Build
+`git clone https://github.com/Bulbacode/famysh.git`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Run Local Server
+In typical angular fashion, all you need to do now is install npm packages.
 
-## Running unit tests
+`npm i`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+and then use ng serve to run the dev server
 
-## Running end-to-end tests
+`ng serve` or `ng serve --o` to open in a new tab automatically.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The front end is now up and running, but the functionality won't work until we setup the api locally.
 
-## Further help
+## Setup the backend
+### Prerequisites
+#### Yelp API
+First you will need to create an app on the yelp api's website and register for the developer beta. The beta gives you access to the graphql api.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[Yelp GraphQL API](https://www.yelp.com/developers/graphql/guides/intro)
+
+You will get an api key, we will need this later so keep it open.
+
+#### Firebase Tools
+Next you will need to install the firebase tools globally on your machine.
+
+`npm i -g firebase-tools`
+
+Also be sure to create an account on the firebase website.
+
+[Firebase Console](https://console.firebase.google.com/)
+
+Once you have an account, run `firebase login` in the command line to sign in to your firebase account.
+
+### Initalize Firebase
+Run `firebase init` in the base directory for the repo, select create a new project, add hosting, functions and emulators.
+
+Next go on the firebase console webpage and go to your project. Copy the config object under Project Settings -> Web -> Config
+
+Paste that object's values in the environment and environment.prod files in the source directory under environments.
+
+### Setting Up Environment Variables
+Now we need to use that api key from yelp. Run this command to set a functions config variable from the terminal.
+
+`firebase functions:config:set yelp.key="THE API KEY"`
+
+to set the environmental variables on the server for firebase. That's great but now we need to get a local copy of the environment vars for our emulator. To do this
+
+`cd functions`
+
+and run 
+
+`firebase functions:config:get > .runtimeconfig.json`
+
+### Now Just Build
+`npm run build`
+
+make sure you run the above command in the functions directory. After building run
+
+`firebase emulators:start --inspect-functions`
+
+to start the emulator.
+
+# Putting it all together
+No we have an emulator running and the front end running. All that's left is to edit the front end environment.ts file to use your local api's base url. To do that, change the project name from 
+
+`famysh-71e0f` to `<your-project-name>`

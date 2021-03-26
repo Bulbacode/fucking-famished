@@ -1,0 +1,41 @@
+<div id="card" [ngClass]="(this.exit==true)?'animate__bounceOutLeft':'my-class2'" class="animate__animated animate__bounceInRight">
+    <div class="px-4">
+        <div style="min-height: 307px;" class="flex flex-wrap content-around bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-baseline">
+                <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                    Next, what is your budget?
+                </div>  
+            </div>
+    
+            <h4 class="mt-1 text-black text-xl font-bold uppercase leading-tight">
+                How much money do you want to spend on food right now?
+            </h4>
+
+            <div class="flex flex-row content-around mx-auto">
+                <label class="inline-flex items-center">
+                    <span class="ml-2 px-2 text-black text-lg font-bold">$</span>
+                    <input [(ngModel)]="low" type="checkbox" class="form-checkbox" checked>
+                </label>
+                <label class="inline-flex items-center">
+                    <span class="ml-2 px-2 text-black text-lg font-bold">$$</span>
+                    <input [(ngModel)]="mid" type="checkbox" class="form-checkbox" checked>
+                </label>
+                <label class="inline-flex items-center">
+                    <span class="ml-2 px-2 text-black text-lg font-bold">$$$</span>
+                    <input [(ngModel)]="high" type="checkbox" class="form-checkbox" checked>
+                </label>
+                <label class="inline-flex items-center">
+                    <span class="ml-2 px-2 text-black text-lg font-bold">$$$$</span>
+                    <input [(ngModel)]="vhigh" type="checkbox" class="form-checkbox" checked>
+                </label>
+            </div>
+
+            <div class="container mt-4">
+
+                <div class="mt-2 flex text-center mx-auto justify-between flex-row">
+                    <button (click)="next()" class="text-center inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Next</button>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

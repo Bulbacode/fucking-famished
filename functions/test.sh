@@ -1,0 +1,1 @@
+curl -d '{"query": {"lat" : "43.040241", "long" : "-71.170769", "rad" : "40000", "price_range": "1,2,3", "is_urgent": "true", "open_to_all": "true", "neutral_restrooms": "true", "wheelchair_accessible": "true"}}' -H "Content-Type: application/json" -X POST localhost:5001/famysh-71e0f/usa-central1/api/search
