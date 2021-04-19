@@ -1,17 +1,17 @@
-<div class="container text-center justify-content w-full h-full mt-1">
-    <div class="flex-row justify-content mx-auto align-content">
+<div class="flex flex-col text-center justify-center w-full h-full mt-1">
+    <div class="flex-row justify-center mx-auto align-content">
         <app-ad-banner *ngIf="!this.businesses"></app-ad-banner>
     </div>
 
-    <div class="mb-5 flex-row justify-content mx-auto align-content">
+    <div class="mb-5 flex-row justify-center mx-auto align-content">
         <img class="animate__animated animate__bounceInLeft" src="../../../assets/FAMYSH.svg"/>
     </div>
 
-    <div class="mt-5 flex-row justify-content mx-auto align-content">
+    <div class="mt-5 flex-row justify-center mx-auto align-content">
         <img *ngIf="this.loading" src="../../../assets/loading.svg"/>
     </div>
     
-    <div class="mt-5 flex-row justify-content mx-auto align-content">
+    <div class="mt-5 flex-row justify-center mx-auto align-content">
         <app-distance-question-card *ngIf="this.step == 1" (hitNext)="onDistance($event)"></app-distance-question-card>
         <app-urgent-question-card *ngIf="this.step == 2" (hitNext)="onUrgency($event)"></app-urgent-question-card>
         <app-price-question-card *ngIf="this.step == 3" (hitNext)="onPrice($event)"></app-price-question-card>
