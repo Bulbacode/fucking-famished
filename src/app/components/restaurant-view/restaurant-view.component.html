@@ -1,5 +1,8 @@
 <div style="display: grid; place-items: center;">
     <img *ngIf="this.loading" src="../../../assets/loading.svg"/>
+    <div *ngIf="!this.loading && !this.currentBusiness">
+        <p>Give us a second to try searching, if this doesn't work Yelp is probably telling us to slow down. Try again in a few minutes</p>
+    </div>
     <div class="mx-5 mb-5" *ngIf="this.currentBusiness && !this.loading">
         <img [src]="this.currentBusiness.photos[0]" alt=" Image of Restaurant" style="max-width: 340px;" class="w-full object-cover object-center rounded-lg shadow-md" />    
      
