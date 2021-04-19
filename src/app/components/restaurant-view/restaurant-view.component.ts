@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,7 +15,7 @@ export class RestaurantViewComponent implements OnChanges {
   currentBusiness: any;
   loading: boolean = true;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -38,6 +39,14 @@ export class RestaurantViewComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
 
     if (changes['businesses']) {
+
+      if (!this.businesses) {
+        return;
+        // window.alert('Error - we most likely have sent Yelp too many searches too fast. Try again in a few minutes');
+        // this.loading = false;
+        // this.router.navigate(['/landing']);
+      }
+
       this.loading = true;
       this.businesses.subscribe((data) => {
         this.allBusinesses = this.shuffle(data.search.business);
@@ -45,7 +54,11 @@ export class RestaurantViewComponent implements OnChanges {
         console.log(JSON.stringify(this.allBusinesses));
         this.currentBusiness = this.allBusinesses[this.currentIndex];
         this.loading = false;
-      }); 
+      }, (err: any) => {
+        window.alert('Error - we most likely have sent Yelp too many searches today. Try again tomorrow.');
+        this.loading = false;
+        this.router.navigate(['/landing']);
+      });
     }
   }
 
