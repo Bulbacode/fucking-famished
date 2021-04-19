@@ -65,7 +65,6 @@ export class SearchComponent implements OnInit {
 
   onExtras(extras: any) {
     this.extras = extras;
-    this.step += 1;
     this.search();
   }
 
@@ -86,7 +85,7 @@ export class SearchComponent implements OnInit {
         };
 
         this.businesses = this.yelp.search(config);
-
+        this.step += 1;
       }, (error) => {
         window.alert('There was an error getting your location, please try again');
         console.log(error);
